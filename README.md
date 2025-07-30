@@ -2,7 +2,7 @@
 
 ## dependencies
 ```
-sudo apt install clang llvm libelf-dev libpcap-dev build-essential m4 linux-headers-$(uname -r) tcpdump libbpf-dev pwru
+sudo apt install clang llvm libelf-dev libpcap-dev build-essential m4 linux-headers-$(uname -r) tcpdump libbpf-dev pwru ethtool
 sudo ln -s /usr/include/$(uname -m)-linux-gnu/asm /usr/include/asm
 ```
 

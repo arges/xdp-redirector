@@ -16,6 +16,10 @@ ip netns exec ns1 ip addr add 10.0.1.2/24 dev veth1-ns1
 ip link set veth1-root up
 ip netns exec ns1 ip link set veth1-ns1 up
 
+# enable GRO on veth peers
+ethtool -K veth1-root gro on
+ip netns exec ns1 ethtool -K veth1-ns1 gro on
+
 # poke a hole in iptables (optional)
 sudo iptables -A INPUT -i veth1-root -j ACCEPT
 
