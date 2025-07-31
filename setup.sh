@@ -1,6 +1,8 @@
 #!/bin/bash
-
 set -euo pipefail -x
+
+# specify a hardware device, or default to ext0
+DEV=${DEV:=ext0}
 
 # re-create netns
 ip netns del ns1 || true
@@ -25,4 +27,4 @@ sudo iptables -A INPUT -i veth1-root -j ACCEPT
 
 # attach redirect program
 target_mac=$(sudo ip netns exec ns1 ip -json l show dev veth1-ns1  | jq .[].address | tr -d \")
-./xdp_loader ext0 veth1-root $target_mac
+./xdp_loader $DEV veth1-root $target_mac

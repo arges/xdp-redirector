@@ -8,10 +8,10 @@ sudo ln -s /usr/include/$(uname -m)-linux-gnu/asm /usr/include/asm
 
 ## quick start
 
-On target machine:
+On target machine where ext0 is the device using the NIC under test:
 ```
 make
-sudo ./setup
+sudo DEV=ext0 ./setup
 ```
 
 From another machine (that can route through target machine NIC):
